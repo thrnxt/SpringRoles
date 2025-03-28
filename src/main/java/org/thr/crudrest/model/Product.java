@@ -1,4 +1,4 @@
-package org.thr.crudrest;
+package org.thr.crudrest.model;
 
 
 import jakarta.persistence.*;

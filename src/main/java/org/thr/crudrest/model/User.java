@@ -1,4 +1,4 @@
-package org.thr.crudrest;
+package org.thr.crudrest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -55,4 +55,9 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+    @Override
+    public String toString() {
+        return "User{id=" + id + ", username='" + username + "'}";
+    }
+
 }

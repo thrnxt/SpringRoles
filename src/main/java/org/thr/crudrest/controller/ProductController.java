@@ -1,10 +1,10 @@
-package org.thr.crudrest;
+package org.thr.crudrest.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
-import org.thr.crudrest.Product;
+import org.thr.crudrest.model.Product;
 import org.thr.crudrest.repository.ProductRepository;
 
 import java.util.List;
@@ -54,17 +54,10 @@ public class ProductController {
         }
     }
 
-    // Проверка роли пользователя
-//    private boolean hasRole(Authentication authentication, String role) {
-//        Set<String> roles = authentication.getAuthorities().stream()
-//                .map(GrantedAuthority::getAuthority)
-//                .collect(Collectors.toSet());
-//        return roles.contains(role);
-//    }
     private boolean hasRole(Authentication authentication, String role) {
         Set<String> roles = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toSet());
-        return roles.contains("ROLE_" + role);  // Добавляем "ROLE_" к проверке
+        return roles.contains("ROLE_" + role); // Оставить добавление "ROLE_" только здесь
     }
 }

@@ -1,7 +1,7 @@
 package org.thr.crudrest.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.thr.crudrest.User;
+import org.thr.crudrest.model.User;
 
 import java.util.Optional;
 

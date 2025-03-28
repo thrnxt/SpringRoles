@@ -1,7 +1,8 @@
-package org.thr.crudrest;
+package org.thr.crudrest.config;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.thr.crudrest.model.User;
 
 import java.util.Collection;
 import java.util.Set;
@@ -18,7 +19,7 @@ public class MyUserDetails implements UserDetails {
         this.password = user.getPassword();
 //pring Security автоматически добавляет префикс "ROLE_". То есть, по факту он ищет "ROLE_ADMIN", а не просто "ADMIN".
         this.authoritySet = user.getRoles().stream()
-                .map(role -> (GrantedAuthority) () -> "ROLE_" + role.getName()) // добавляем ROLE_
+                .map(role -> (GrantedAuthority) () -> role.getName()) // УБРАТЬ "ROLE_" здесь
                 .collect(Collectors.toSet());
 
     }
